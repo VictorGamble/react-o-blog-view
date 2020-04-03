@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Entry from './Entry'
 
 class EntriesList extends Component{
     state = {
@@ -33,7 +33,10 @@ class EntriesList extends Component{
         console.log(data);
         return (
         
-            (!isLoaded) ? <div>Loading Data....</div> : <div>hello World</div>
+            (!isLoaded) ?
+                <div>{data.map(user => <Entry key={data.name} data={user}/>)}</div>
+                :
+                <div>Hold your Horses</div>
            
         )
     }
